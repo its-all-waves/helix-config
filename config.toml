@@ -1,0 +1,13 @@
+theme = "dark_2"
+
+[editor.soft-wrap]
+enable = true
+
+[editor.lsp]
+auto-signature-help = false 
+
+[keys.insert]
+"C-," = "signature_help" # DOES NOT WORK
+
+[editor.file-picker]
+hidden = false

@@ -1,0 +1,72 @@
+### C
+[[language]]
+name = "c"
+indent = { tab-width = 4, unit = "    "}
+
+### Go
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "goimports" }
+
+[language-server.gopls]
+command = "gopls"
+
+[language-server.gopls.config.hints]
+assignVariableTypes = true
+compositeLiteralFields = true
+constantValues = true
+functionTypeParameters = true
+parameterNames = true
+rangeVariableTypes = true
+
+[language-server.golangci-lint-lsp]
+command = "golangci-lint-langserver"
+
+[language-server.golangci-lint-lsp.config]
+command = ["golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1"]
+
+
+# Markdown
+[[language]]
+name = "markdown"
+formatter = { command = "prettier", args = ["--parser", "markdown"] }
+indent = { tab-width = 4, unit = "    "}
+
+
+### Web
+
+# https://github.com/olrtg/emmet-language-server?tab=readme-ov-file#helix
+[language-server.emmet-lsp]
+command = "emmet-language-server"
+args = ["--stdio"]
+
+[[language]]
+name = "typescript"
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+language-servers = [{ name = "typescript-language-server" }]
+
+[[language]]
+name = "tsx"
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
+language-servers = ["typescript-language-server", "emmet-lsp"]
+
+[[language]]
+name = "javascript"
+formatter = { command = "prettier", args = ["--parser", "javascript"] }
+language-servers = [{ name = "typescript-language-server" }]
+
+[[language]]
+name = "jsx"
+formatter = { command = "prettier", args = ["--parser", "javascript"] }
+language-servers = ["typescript-language-server", "emmet-lsp"]
+
+[[language]]
+name = "css"
+formatter = { command = "prettier", args = ["--parser", "css"] }
+
+[[language]]
+name = "html"
+# roots = [".git"]
+formatter = { command = "prettier", args = ["--parser", "html"] }
+language-servers = ["vscode-html-language-server", "emmet-lsp"]

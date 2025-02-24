@@ -1,0 +1,13 @@
+inherits = "github_dark"
+"ui.background" = { fg = "foreground" }
+"ui.bufferline.background" = { fg = "foreground" }
+"ui.popup" = { fg = "foreground" }
+"ui.popup.info" = { fg = "foreground" }
+
+"ui.cursor.select" = { bg = "delta" }
+"ui.cursor.insert" = { bg = "white" }
+"ui.cursor.primary.select" = { bg = "delta" }
+"ui.cursor.primary.insert" = { bg = "white" }
+"ui.cursor.match" = { fg = "#212121", bg = "#6C6999" }
+"ui.cursor" = { modifiers = ["reversed"] }
+"ui.cursorline.primary" = { bg = "bossanova" }
