@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# MOVE SYMLINKS OF CUSTOM THEMES INTO THE THEMES DIR
+
 # Get the directory where the script is located
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 

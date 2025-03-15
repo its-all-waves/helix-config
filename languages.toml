@@ -41,10 +41,20 @@ indent = { tab-width = 4, unit = "    "}
 command = "emmet-language-server"
 args = ["--stdio"]
 
+[language-server.deno-lsp]
+command = "deno"
+args = ["lsp"]
+config.deno.enable = true
+
 [[language]]
 name = "typescript"
+roots = ["deno.json", "deno.jsonc", "package.json"]
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
-language-servers = [{ name = "typescript-language-server" }]
+language-servers = ["typescript-language-server"]
+### Deno settings
+# language-servers = ["deno-lsp"]
+auto-format = true
+
 
 [[language]]
 name = "tsx"
@@ -53,8 +63,10 @@ language-servers = ["typescript-language-server", "emmet-lsp"]
 
 [[language]]
 name = "javascript"
+# roots = ["deno.json", "deno.jsonc", "package.json"]
 formatter = { command = "prettier", args = ["--parser", "javascript"] }
-language-servers = [{ name = "typescript-language-server" }]
+# language-servers = ["typescript-language-server", "deno-lsp"]
+language-servers = ["typescript-language-server"]
 
 [[language]]
 name = "jsx"

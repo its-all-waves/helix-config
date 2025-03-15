@@ -1,4 +1,4 @@
-theme = "dark_2"
+theme = "catppuccin_mocha"
 
 [editor.soft-wrap]
 enable = true
@@ -8,6 +8,9 @@ auto-signature-help = false
 
 [keys.insert]
 "C-," = "signature_help" # DOES NOT WORK
+
+[keys.normal]
+"X" = "extend_line_up"
 
 [editor.file-picker]
 hidden = false
