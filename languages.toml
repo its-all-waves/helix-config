@@ -1,7 +1,8 @@
 ### C
 [[language]]
 name = "c"
-indent = { tab-width = 4, unit = "    "}
+indent = { tab-width = 4, unit = "    " }
+
 
 ### Go
 [[language]]
@@ -24,14 +25,20 @@ rangeVariableTypes = true
 command = "golangci-lint-langserver"
 
 [language-server.golangci-lint-lsp.config]
-command = ["golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1"]
+command = [
+  "golangci-lint",
+  "run",
+  "--out-format",
+  "json",
+  "--issues-exit-code=1",
+]
 
 
 # Markdown
 [[language]]
 name = "markdown"
 formatter = { command = "prettier", args = ["--parser", "markdown"] }
-indent = { tab-width = 4, unit = "    "}
+indent = { tab-width = 4, unit = "    " }
 
 
 ### Web
@@ -55,11 +62,11 @@ language-servers = ["typescript-language-server"]
 # language-servers = ["deno-lsp"]
 auto-format = true
 
-
 [[language]]
 name = "tsx"
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
 language-servers = ["typescript-language-server", "emmet-lsp"]
+auto-format = true
 
 [[language]]
 name = "javascript"
@@ -82,3 +89,67 @@ name = "html"
 # roots = [".git"]
 formatter = { command = "prettier", args = ["--parser", "html"] }
 language-servers = ["vscode-html-language-server", "emmet-lsp"]
+
+
+# Python
+
+# NOTE: Pyright V1.1.400 only works when installed via MacPorts -- _not_ when installed
+# via Homebrew, despite `hx --health python` showing the correct Homebrew path for pyright
+
+[[language]]
+name = "python"
+language-servers = ["pyright", "ruff"]
+roots = [
+  "setup.py",
+  "pyproject.toml",
+  ".venv",
+  ".git",
+  "uv.lock",
+  "poetry.lock",
+]
+
+[language-server.pyright]
+command = "pyright-langserver"
+args = ["--stdio"]
+# config = {}  # <-- 'very important' line that's unnecessary?
+
+# NOT NEEDED
+# [language-server.ruff]
+# command = "ruff"
+# args = ["server", "-q", "--preview"]
+
+[language-server.ruff.config.settings]
+lineLength = 80
+logLevel = "debug"
+
+[language-server.ruff.config.settings.lint]
+select = [
+  "E",
+  "F",
+  "W",
+  "B",
+  "I",
+  "RUF",
+  "N",
+  "LOG",
+  "ERA",
+  "W",
+  "D",
+  "UP",
+  "ANN",
+  "ASYNC",
+  "S",
+  "RET",
+  "TCH",
+  "ARG",
+  "PTH",
+  "DOC",
+]
+preview = true
+
+# Per Ruff, these settings will be ignored if there's a pyproject.toml (even with no tool.ruff settings declared)
+[language-server.ruff.config.settings.format]
+preview = true
+quote-style = "double"
+docstring-code-format = true
+indent-style = "space"
