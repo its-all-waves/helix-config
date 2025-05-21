@@ -1,17 +1,20 @@
 theme = "catppuccin_mocha"
 
+[editor]
+smart-tab.enable = false  # allow inserting tab normally -- wtffff
+
 [editor.soft-wrap]
 enable = true
 
 [editor.lsp]
-auto-signature-help = false 
+auto-signature-help = false
+
+[editor.file-picker]
+hidden = true
+git-ignore = false
 
 [keys.insert]
 "C-," = "signature_help" # DOES NOT WORK
 
 [keys.normal]
 "X" = "extend_line_up"
-
-[editor.file-picker]
-hidden = true
-git-ignore = false
