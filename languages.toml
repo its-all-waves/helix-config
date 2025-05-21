@@ -118,6 +118,7 @@ logLevel = "debug"
 [language-server.ruff.config.settings.lint]
 # https://docs.astral.sh/ruff/rules/
 select = [
+  "A",      # flake8 builtins (warning on shadowed built-ins)
   "E",      # pycodestyle Error
   "F",      # pyflakes (unused imports & vars, etc)
   "W",      # Warning (tab indentation, trailing whitespace, etc) 
