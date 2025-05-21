@@ -35,6 +35,7 @@ command = [
 
 
 # Markdown
+
 [[language]]
 name = "markdown"
 formatter = { command = "prettier", args = ["--parser", "markdown"] }
@@ -92,9 +93,6 @@ language-servers = ["vscode-html-language-server", "emmet-lsp"]
 
 
 # Python
-
-# NOTE: Pyright V1.1.400 only works when installed via MacPorts -- _not_ when installed
-# via Homebrew, despite `hx --health python` showing the correct Homebrew path for pyright
 
 [[language]]
 name = "python"
