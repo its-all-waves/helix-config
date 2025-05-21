@@ -100,56 +100,48 @@ language-servers = ["vscode-html-language-server", "emmet-lsp"]
 name = "python"
 language-servers = ["pyright", "ruff"]
 roots = [
+  ".venv",
+  "venv",
+  "ENV",
+  "env",
+  ".git",
   "setup.py",
   "pyproject.toml",
-  ".venv",
-  ".git",
   "uv.lock",
   "poetry.lock",
 ]
-
-[language-server.pyright]
-command = "pyright-langserver"
-args = ["--stdio"]
-# config = {}  # <-- 'very important' line that's unnecessary?
-
-# NOT NEEDED
-# [language-server.ruff]
-# command = "ruff"
-# args = ["server", "-q", "--preview"]
 
 [language-server.ruff.config.settings]
 lineLength = 80
 logLevel = "debug"
 
 [language-server.ruff.config.settings.lint]
+# https://docs.astral.sh/ruff/rules/
 select = [
-  "E",
-  "F",
-  "W",
-  "B",
-  "I",
-  "RUF",
-  "N",
-  "LOG",
-  "ERA",
-  "W",
-  "D",
-  "UP",
-  "ANN",
-  "ASYNC",
-  "S",
-  "RET",
-  "TCH",
-  "ARG",
-  "PTH",
-  "DOC",
+  "E",      # pycodestyle Error
+  "F",      # pyflakes (unused imports & vars, etc)
+  "W",      # Warning (tab indentation, trailing whitespace, etc) 
+  "DOC",    # pydoclint (warning on malformed docstring)
+  # "D",    # pydocstyle [ANNOYING] (undoc'd public method, overindented section, etc)
+  "B",      # flake8 bugbear (useless expression, ABC w/o abstract method, etc)
+  "I",      # isort (import sorting, missing required input)
+  "RUF",    # ruff-specific
+  "N",      # pep8 naming (symbol naming style)
+  "LOG",    # flake8 logging
+  "ERA",    # eradicate (warning on commented out code)
+  "UP",     # pyupgrade (warning on older syntax)
+  "ANN",    # flake8 annotations (warning on missing type annotations)
+  "ASYNC",  # flake8 async (warning on bad async code)
+  "S",      # flake8 bandit (security, debug=true, suspicious marshal usage, etc)
+  "RET",    # flake8 return (bad returns)
+  "TC",     # flake8 type checking
+  "ARG",    # flake8 unused arguments
+  "PTH",    # flake use pathlib (warn to use pathlib instead of xyz)
 ]
-preview = true
 
-# Per Ruff, these settings will be ignored if there's a pyproject.toml (even with no tool.ruff settings declared)
+# Per Ruff, these settings will be ignored if there's a pyproject.toml
+# (even with no tool.ruff settings declared)
 [language-server.ruff.config.settings.format]
-preview = true
 quote-style = "double"
 docstring-code-format = true
 indent-style = "space"
