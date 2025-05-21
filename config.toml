@@ -7,7 +7,7 @@ smart-tab.enable = false  # allow inserting tab normally -- wtffff
 enable = true
 
 [editor.lsp]
-auto-signature-help = false
+auto-signature-help = true
 
 [editor.file-picker]
 hidden = true
