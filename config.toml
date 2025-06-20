@@ -14,7 +14,12 @@ hidden = true
 git-ignore = false
 
 [keys.insert]
-"C-," = "signature_help" # DOES NOT WORK
+"C-," = "signature_help"
 
 [keys.normal]
 "X" = "extend_line_up"
+
+# markdown checkbox shortcuts
+[keys.normal.space]
+"x" = "@i- [ ] "  # space-x inserts a checkbox at cursor position
+"ret" = "@x @s- \\[ \\]<ret> @c- [x]<esc><h><h>"  # space-enter checks the checkbox from anywhere on the line
