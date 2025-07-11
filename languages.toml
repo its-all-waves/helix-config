@@ -64,6 +64,10 @@ language-servers = ["deno-lsp"]
 auto-format = true
 
 [[language]]
+name = "svelte"
+language-servers = ["typescript-language-server", "vscode-html-language-server", "emmet-lsp", "vscode-css-language-server"]
+
+[[language]]
 name = "tsx"
 formatter = { command = "prettier", args = ["--parser", "typescript"] }
 language-servers = ["typescript-language-server", "emmet-lsp"]
