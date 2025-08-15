@@ -35,12 +35,16 @@ command = [
 
 
 # Markdown
-
 [[language]]
 name = "markdown"
+language-servers = ["marksman", "mpls"]
 formatter = { command = "prettier", args = ["--parser", "markdown"] }
-indent = { tab-width = 4, unit = "    " }
 
+[language-server.mpls]
+command = "mpls"
+args = ["--dark-mode", "--enable-emoji"]
+# An example args entry showing how to specify flags with values:
+# args = ["--port", "8080", "--browser", "google-chrome"]
 
 ### Web
 
@@ -57,15 +61,11 @@ config.deno.enable = true
 [[language]]
 name = "typescript"
 roots = ["deno.json", "deno.jsonc", "package.json"]
-formatter = { command = "prettier", args = ["--parser", "typescript"] }
+# formatter = { command = "prettier", args = ["--parser", "typescript"] }
 # language-servers = ["typescript-language-server"]
 ### Deno settings
 language-servers = ["deno-lsp"]
-auto-format = true
-
-[[language]]
-name = "svelte"
-language-servers = ["typescript-language-server", "vscode-html-language-server", "emmet-lsp", "vscode-css-language-server"]
+# auto-format = true
 
 [[language]]
 name = "tsx"
@@ -128,9 +128,9 @@ logLevel = "debug"
 # https://docs.astral.sh/ruff/rules/
 select = [
   "A",      # flake8 builtins (warning on shadowed built-ins)
-  "E",      # pycodestyle Error
+  # "E",      # pycodestyle Error [ANNOYING] lines too long error -- why don't the formatter fix it then?! ...TODO: config max line len in formatter
   "F",      # pyflakes (unused imports & vars, etc)
-  "W",      # Warning (tab indentation, trailing whitespace, etc) 
+  # "W",      # Warning (tab indentation, trailing whitespace, etc) 
   "DOC",    # pydoclint (warning on malformed docstring)
   # "D",    # pydocstyle [ANNOYING] (undoc'd public method, overindented section, etc)
   "B",      # flake8 bugbear (useless expression, ABC w/o abstract method, etc)
