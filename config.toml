@@ -1,6 +1,7 @@
 theme = "catppuccin_mocha"
 
 [editor]
+shell = [ "/bin/zsh", "-ic" ]
 smart-tab.enable = false  # allow inserting tab normally -- wtffff
 
 [editor.soft-wrap]
@@ -11,15 +12,19 @@ auto-signature-help = true
 
 [editor.file-picker]
 hidden = true
-git-ignore = false
+# git-ignore = false
 
 [keys.insert]
 "C-," = "signature_help"
 
 [keys.normal]
 "X" = "extend_line_up"
+"C-l" = ":open ~/.config/helix/languages.toml"
 
 # markdown checkbox shortcuts
 [keys.normal.space]
 "x" = "@i- [ ] "  # space-x inserts a checkbox at cursor position
 "ret" = "@x @s- \\[ \\]<ret> @c- [x]<esc><h><h>"  # space-enter checks the checkbox from anywhere on the line
+
+
+
