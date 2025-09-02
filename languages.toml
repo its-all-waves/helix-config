@@ -1,3 +1,8 @@
+### Spell Checker
+[language-server.codebook]
+command = "codebook-lsp"
+args = ["server"]
+
 ### C
 [[language]]
 name = "c"
@@ -37,7 +42,7 @@ command = [
 # Markdown
 [[language]]
 name = "markdown"
-language-servers = ["marksman", "mpls"]
+language-servers = ["codebook", "marksman", "mpls"] # TODO: try compiling codebook https://github.com/blopker/codebook/issues/30#issuecomment-2708964041
 formatter = { command = "prettier", args = ["--parser", "markdown"] }
 
 [language-server.mpls]
@@ -61,7 +66,7 @@ config.deno.enable = true
 [[language]]
 name = "typescript"
 roots = ["deno.json", "deno.jsonc", "package.json"]
-# formatter = { command = "prettier", args = ["--parser", "typescript"] }
+formatter = { command = "prettier", args = ["--parser", "typescript"] }
 # language-servers = ["typescript-language-server"]
 ### Deno settings
 language-servers = ["deno-lsp"]
@@ -98,9 +103,9 @@ auto-format = false
 [[language]]
 name = "html"
 # roots = [".git"]
-# formatter = { command = "prettier", args = ["--parser", "html"] }
+formatter = { command = "prettier", args = ["--parser", "html"] }
 language-servers = ["vscode-html-language-server", "emmet-lsp"]
-auto-format = false
+auto-format = true
 
 
 # Python
@@ -129,23 +134,23 @@ logLevel = "debug"
 select = [
   "A",      # flake8 builtins (warning on shadowed built-ins)
   # "E",      # pycodestyle Error [ANNOYING] lines too long error -- why don't the formatter fix it then?! ...TODO: config max line len in formatter
-  "F",      # pyflakes (unused imports & vars, etc)
+  # "F",      # pyflakes (unused imports & vars, etc)
   # "W",      # Warning (tab indentation, trailing whitespace, etc) 
   "DOC",    # pydoclint (warning on malformed docstring)
   # "D",    # pydocstyle [ANNOYING] (undoc'd public method, overindented section, etc)
   "B",      # flake8 bugbear (useless expression, ABC w/o abstract method, etc)
-  "I",      # isort (import sorting, missing required input)
-  "RUF",    # ruff-specific
-  "N",      # pep8 naming (symbol naming style)
+  # "I",      # isort (import sorting, missing required input)
+  # "RUF",    # ruff-specific
+  # "N",      # pep8 naming (symbol naming style)
   "LOG",    # flake8 logging
-  "ERA",    # eradicate (warning on commented out code)
+  # "ERA",    # eradicate (warning on commented out code)
   "UP",     # pyupgrade (warning on older syntax)
-  "ANN",    # flake8 annotations (warning on missing type annotations)
+  # "ANN",    # flake8 annotations (warning on missing type annotations)
   "ASYNC",  # flake8 async (warning on bad async code)
   "S",      # flake8 bandit (security, debug=true, suspicious marshal usage, etc)
-  "RET",    # flake8 return (bad returns)
-  "TC",     # flake8 type checking
-  "ARG",    # flake8 unused arguments
+  # "RET",    # flake8 return (bad returns)
+  # "TC",     # flake8 type checking
+  # "ARG",    # flake8 unused arguments
   "PTH",    # flake use pathlib (warn to use pathlib instead of xyz)
 ]
 

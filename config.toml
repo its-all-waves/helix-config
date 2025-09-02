@@ -1,8 +1,15 @@
+# FOR SSH IN GHOSTTY
+# theme = "base16_transparent"
+
 theme = "catppuccin_mocha"
 
 [editor]
-shell = [ "/bin/zsh", "-ic" ]
 smart-tab.enable = false  # allow inserting tab normally -- wtffff
+
+end-of-line-diagnostics = "disable"
+[editor.inline-diagnostics]
+cursor-line = "disable"
+other-lines = "disable"
 
 [editor.soft-wrap]
 enable = true
@@ -12,7 +19,7 @@ auto-signature-help = true
 
 [editor.file-picker]
 hidden = true
-# git-ignore = false
+git-ignore = false
 
 [keys.insert]
 "C-," = "signature_help"
@@ -25,6 +32,4 @@ hidden = true
 [keys.normal.space]
 "x" = "@i- [ ] "  # space-x inserts a checkbox at cursor position
 "ret" = "@x @s- \\[ \\]<ret> @c- [x]<esc><h><h>"  # space-enter checks the checkbox from anywhere on the line
-
-
-
+">" = ":insert-output date '+%%Y.%%m.%%d'"  # format: 2025.12.30
