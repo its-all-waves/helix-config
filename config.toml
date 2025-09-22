@@ -33,3 +33,4 @@ git-ignore = false
 "x" = "@i- [ ] "  # space-x inserts a checkbox at cursor position
 "ret" = "@x @s- \\[ \\]<ret> @c- [x]<esc><h><h>"  # space-enter checks the checkbox from anywhere on the line
 ">" = ":insert-output date '+%%Y.%%m.%%d'"  # format: 2025.12.30
+"t" = "@v_\"myc<lt>tag<gt><esc>Pa<lt>/tag<gt><esc>?tag<ret><space>r" # wrap selection with html tag -- works great on multiline with whitespace in selection, but requires several steps to undo
